@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<title>FIS Network Management</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+</head>
+
+<body>
+
+<header>
+<h1>FIS - Network Management System</h1>
+</header>
+
+<section class="controls">
+
+<input type="file" id="upload" accept=".xlsx">
+
+<input type="text" id="search" placeholder="Buscar IP, nodo, MAC, equipo...">
+
+<select id="lineFilter">
+<option value="">Todas las Líneas</option>
+</select>
+
+<select id="areaFilter">
+<option value="">Todas las Áreas</option>
+</select>
+
+</section>
+
+
+<section class="dashboard">
+
+<div>Total Nodos: <span id="totalNodes">0</span></div>
+<div>Switch F112 usados: <span id="f112Used">0</span> / 48</div>
+<div>Switch F113 usados: <span id="f113Used">0</span> / 48</div>
+<div>Switch F111 usados: <span id="f112Used">0</span> / 48</div>
+
+
+
+
+
+
+</section>
+
+
+<section class="network-map">
+
+<h2>Mapa de Red</h2>
+
+<div class="zoom-controls">
+<button onclick="zoomIn()">+</button>
+<button onclick="zoomOut()">-</button>
+</div>
+
+<div class="map-container">
+
+<img id="plantMap" src="/img/Mapa conceptual (3).svg">
+
+</div>
+
+</section>
+    
+
+<table>
+
+<thead>
+
+<tr>
+<th>Línea</th>
+<th>Área</th>
+<th>Nodo</th>
+<th>Switch</th>
+<th>Puerto</th>
+<th>IP</th>
+<th>Equipo</th>
+<th>Dominio</th>
+<th>MAC</th>
+<th>Estación</th>
+</tr>
+
+</thead>
+
+<tbody id="tableBody"></tbody>
+
+</table>
+
+<script src="app.js"></script>
+
+</body>
+</html>
