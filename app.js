@@ -151,6 +151,6 @@ document.getElementById("plantMap").style.transform =
 function logout(){
 
 localStorage.removeItem("logged");
-window.location.href = "login.html";
+window.location.href = "Login.html";
 
 }
