@@ -5,12 +5,12 @@ document.getElementById("search").addEventListener("input", renderTable);
 document.getElementById("lineFilter").addEventListener("change", renderTable);
 document.getElementById("areaFilter").addEventListener("change", renderTable);
 
-function handleFile(e) {
+function handleFile(e){
 
 const file = e.target.files[0];
 const reader = new FileReader();
 
-reader.onload = function(evt) {
+reader.onload = function(evt){
 
 const workbook = XLSX.read(evt.target.result,{type:"binary"});
 const sheet = workbook.Sheets[workbook.SheetNames[0]];
@@ -25,7 +25,6 @@ renderTable();
 reader.readAsBinaryString(file);
 
 }
-
 
 function populateFilters(){
 
@@ -48,7 +47,6 @@ areaSelect.innerHTML+=`<option value="${a}">${a}</option>`;
 
 }
 
-
 function renderTable(){
 
 const search = document.getElementById("search").value.toLowerCase();
@@ -61,6 +59,7 @@ tbody.innerHTML="";
 let ipCount={};
 let f112Used=0;
 let f113Used=0;
+let f111Used=0;
 
 let filtered=data.filter(row=>{
 
@@ -74,16 +73,15 @@ Object.values(row).join(" ").toLowerCase().includes(search)
 
 });
 
-
 filtered.forEach(row=>{
 
+if(row.switch==="F111") f111Used++;
 if(row.switch==="F112") f112Used++;
 if(row.switch==="F113") f113Used++;
 
 ipCount[row.ip]=(ipCount[row.ip]||0)+1;
 
 });
-
 
 filtered.forEach(row=>{
 
@@ -113,12 +111,14 @@ tbody.appendChild(tr);
 });
 
 document.getElementById("totalNodes").innerText=filtered.length;
+document.getElementById("f111Used").innerText=f111Used;
 document.getElementById("f112Used").innerText=f112Used;
 document.getElementById("f113Used").innerText=f113Used;
-document.getElementById("duplicateIPs").innerText=Object.values(ipCount).filter(v=>v>1).length;
+
+document.getElementById("duplicateIPs").innerText=
+Object.values(ipCount).filter(v=>v>1).length;
 
 }
-
 
 let zoom = 1;
 
@@ -145,5 +145,12 @@ document.getElementById("plantMap").style.transform =
 `scale(${zoom})`;
 
 }
+
+}
+
+function logout(){
+
+localStorage.removeItem("logged");
+window.location.href = "login.html";
 
 }
