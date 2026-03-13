@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -13,8 +14,24 @@
 
 <body>
 
+<script>
+
+if(localStorage.getItem("logged") !== "true"){
+
+window.location.href = "login.html";
+
+}
+
+</script>
+
 <header>
+
 <h1>FIS - Network Management System</h1>
+
+<button onclick="logout()" style="position:absolute; right:20px; top:15px;">
+Logout
+</button>
+
 </header>
 
 <section class="controls">
@@ -39,12 +56,8 @@
 <div>Total Nodos: <span id="totalNodes">0</span></div>
 <div>Switch F112 usados: <span id="f112Used">0</span> / 48</div>
 <div>Switch F113 usados: <span id="f113Used">0</span> / 48</div>
-<div>Switch F111 usados: <span id="f112Used">0</span> / 48</div>
-
-
-
-
-
+<div>Switch F111 usados: <span id="f111Used">0</span> / 48</div>
+<div>IPs duplicadas: <span id="duplicateIPs">0</span></div>
 
 </section>
 
@@ -60,7 +73,7 @@
 
 <div class="map-container">
 
-<img id="plantMap" src="img/Mapa conceptual (5).svg">
+<img id="plantMap" src="img/Mapa conceptual (6).svg">
 
 </div>
 
@@ -93,8 +106,4 @@
 <script src="app.js"></script>
 
 </body>
-
 </html>
-
-
-
