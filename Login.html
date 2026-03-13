@@ -35,101 +35,74 @@ align-items:center;
 
 background:#ffffff;
 padding:40px;
-
 border-radius:10px;
-
 width:360px;
-
-box-shadow:0 15px 40px rgb(0, 0, 0);
-
+box-shadow:0 15px 40px rgb(0,0,0);
 text-align:center;
 
 }
 
 .logo{
-
 width:220px;
 margin-bottom:20px;
-
 }
 
 .login-card h2{
-
 margin:10px 0 25px 0;
 font-weight:500;
-
 color:#000000;
-
 }
 
 .input-group{
-
 margin-bottom:18px;
 text-align:left;
-
 }
 
 label{
-
 font-size:13px;
 color:#000000;
-
 }
 
 input{
 
 width:100%;
 padding:10px;
-
 margin-top:5px;
-
 border-radius:5px;
 border:1px solid #000000;
-
 background:#ffffff;
 color:#000;
 
 }
 
 input:focus{
-
 outline:none;
 border-color:#d00000;
-
 }
 
 button{
 
 width:100%;
 padding:12px;
-
 background:#c40a0a;
-
 border:none;
-
 border-radius:5px;
-
 color:white;
-
 font-size:15px;
-
 cursor:pointer;
-
 margin-top:10px;
 
 }
 
 button:hover{
-
 background:#cc0000;
-
 }
 
 .footer{
 
 margin-top:20px;
-font-size:12px;
-color:#000000;
+font-size:11px;
+color:#555;
 
 }
 
@@ -162,11 +135,10 @@ color:#000000;
 </form>
 
 <div class="footer">
-Inventec Internal Network System
+Developed by Alejandro Castro Rivas – IT Department CIM
 </div>
 
 </div>
-
 <script>
 
 function login(){
@@ -177,10 +149,9 @@ let password = document.querySelector('[name="password"]').value;
 if(username === "Guest" && password === "Guest+123"){
 
 localStorage.setItem("logged","true");
+window.location.href="index.html";
 
-window.location.href = "index.html";
-
-}else{  
+}else{
 
 alert("Invalid username or password");
 
@@ -193,5 +164,4 @@ return false;
 </script>
 
 </body>
-
 </html>
