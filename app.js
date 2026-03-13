@@ -124,7 +124,7 @@ let zoom = 1;
 
 function zoomIn(){
 
-if(zoom < 4){
+if(zoom < 8){
 
 zoom += 0.2;
 
@@ -137,7 +137,7 @@ document.getElementById("plantMap").style.transform =
 
 function zoomOut(){
 
-if(zoom > 1){
+if(zoom > 4){
 
 zoom -= 0.2;
 
